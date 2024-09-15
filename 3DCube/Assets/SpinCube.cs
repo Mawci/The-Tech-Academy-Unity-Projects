@@ -8,7 +8,9 @@ public class SpinCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Press any arrow key");
+        Debug.LogWarning("No input detected");
+        Debug.LogError("There is nothing set up to register input!");
     }
 
     // Update is called once per frame
