@@ -11,6 +11,7 @@ public class SpinCube : MonoBehaviour
         Debug.Log("Press any arrow key");
         Debug.LogWarning("No input detected");
         Debug.LogError("There is nothing set up to register input!");
+        Debug.Log("Adding a new line of code");
     }
 
     // Update is called once per frame
