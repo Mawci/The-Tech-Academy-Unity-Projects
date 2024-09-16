@@ -18,11 +18,23 @@ public class Player : MonoBehaviour
     {
         Run();
     }
+
     private void Run()
     {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         print(controlThrow);
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, rigidBody2D.velocity.y);
+        FlipSprite();
         rigidBody2D.velocity = playerVelocity;
+    }
+
+    private void FlipSprite()
+    {
+        bool runningHorizontally = Mathf.Abs(rigidBody2D.velocity.x) > Mathf.Epsilon;
+
+        if(runningHorizontally)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rigidBody2D.velocity.x), 1f); 
+        }
     }
 }
