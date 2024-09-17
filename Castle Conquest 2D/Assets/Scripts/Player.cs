@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpForce = 15.0f;
     Rigidbody2D rigidBody2D;
     Animator myAnimator;
+    PolygonCollider2D playerFeetCollider;
     BoxCollider2D playerCollider;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        playerFeetCollider = GetComponent<PolygonCollider2D>();
         playerCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -29,7 +31,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if(!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if(!playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         
         bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
         
