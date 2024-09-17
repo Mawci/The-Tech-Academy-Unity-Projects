@@ -56,6 +56,9 @@ TagManager:
   - name: Player
     uniqueID: 359558127
     locked: 0
+  - name: Bomb
+    uniqueID: 1249059175
+    locked: 0
   - name: Foreground
     uniqueID: 3297171815
     locked: 0
