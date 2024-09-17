@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     PolygonCollider2D playerFeetCollider;
     BoxCollider2D playerCollider;
 
+    float gravityStartingScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         playerFeetCollider = GetComponent<PolygonCollider2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        gravityStartingScale = rigidBody2D.gravityScale;
     }
 
     // Update is called once per frame
@@ -39,10 +42,12 @@ public class Player : MonoBehaviour
             Vector2 playerVelocity = new Vector2(rigidBody2D.velocity.x, controlThrow * climbSpeed);
             rigidBody2D.velocity = playerVelocity;
             myAnimator.SetBool("Climbing", true);
+            rigidBody2D.gravityScale = 0f;
         }
         else
         {
             myAnimator.SetBool("Climbing", false);
+            rigidBody2D.gravityScale = gravityStartingScale;
         }
     }
 
