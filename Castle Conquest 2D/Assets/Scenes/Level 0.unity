@@ -44468,6 +44468,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 9013055735717884009, guid: 4debd9bb9fee91541baf153da6ec0924, type: 3}
+      propertyPath: radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013055735717884009, guid: 4debd9bb9fee91541baf153da6ec0924, type: 3}
+      propertyPath: explosionForce.x
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013055735717884009, guid: 4debd9bb9fee91541baf153da6ec0924, type: 3}
+      propertyPath: explosionForce.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9013055735717884013, guid: 4debd9bb9fee91541baf153da6ec0924, type: 3}
       propertyPath: m_RootOrder
       value: 5
