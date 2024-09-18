@@ -19,7 +19,7 @@ TagManager:
   - Confiner
   - Enemy
   - Interactable
-  - 
+  - Pickups
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 359558127
+    locked: 0
+  - name: Decorations
+    uniqueID: 1217396573
     locked: 0

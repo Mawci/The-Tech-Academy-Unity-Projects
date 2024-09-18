@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 359558127
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1504379006, guid: 68bcfb8a16d8db34aad0b50b92296d21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -175,6 +175,7 @@ MonoBehaviour:
   climbSpeed: 8
   hitKick: {x: 50, y: 50}
   hurtBox: {fileID: 3977698809192412588}
+  attackRadius: 1.06
 --- !u!60 &4519213510232102290
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132375901384681029}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0.63, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

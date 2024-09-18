@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
     {
         rigidBody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
         myAnimator.SetTrigger("Hitting");
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
         isHurting = true;
         StartCoroutine(HurtCoolDown());
     }
