@@ -18,7 +18,7 @@ TagManager:
   - Player
   - Confiner
   - Enemy
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Bomb
     uniqueID: 1249059175
+    locked: 0
+  - name: Interactable
+    uniqueID: 2311514271
     locked: 0
   - name: Foreground
     uniqueID: 3297171815
