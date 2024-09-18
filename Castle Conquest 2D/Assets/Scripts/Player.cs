@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
             foreach(Collider2D enemy in enemiesToHit)
             {
-                Debug.Log("HAHA I've Hit you");
+                enemy.GetComponent<Enemy>().Dying();
             }
         }
     }

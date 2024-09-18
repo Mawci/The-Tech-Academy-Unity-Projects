@@ -8,17 +8,39 @@ public class Enemy : MonoBehaviour
     Rigidbody2D enemyRigidBody;
     [SerializeField] float enemySpeed =5f;
     BoxCollider2D enemyBoxCollider;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyBoxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isFacingLeft())
+        EnemyMove();
+    }
+
+    public void Dying()
+    {
+        animator.SetTrigger("Die");
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        enemyBoxCollider.enabled = false;
+        enemyRigidBody.bodyType = RigidbodyType2D.Static;
+        StartCoroutine(DespawnTime());
+    }
+
+    IEnumerator DespawnTime()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+    }
+
+    private void EnemyMove()
+    {
+        if (isFacingLeft())
         {
             enemyRigidBody.velocity = new Vector2(-enemySpeed, 0f);
         }
@@ -26,7 +48,6 @@ public class Enemy : MonoBehaviour
         {
             enemyRigidBody.velocity = new Vector2(enemySpeed, 0f);
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
