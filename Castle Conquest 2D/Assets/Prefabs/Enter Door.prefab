@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5718e60d97303f84396979ed3d75c534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSFX: {fileID: 8300000, guid: 695028aa9d13dcd4aa8e1f4d7f511ace, type: 3}

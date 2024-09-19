@@ -7,8 +7,10 @@ public class Enemy : MonoBehaviour
 {
     Rigidbody2D enemyRigidBody;
     [SerializeField] float enemySpeed =5f;
+    [SerializeField] AudioClip deathSFX;
     BoxCollider2D enemyBoxCollider;
     Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
     public void Dying()
     {
         animator.SetTrigger("Die");
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, 0.05f);
         GetComponent<CapsuleCollider2D>().enabled = false;
         enemyBoxCollider.enabled = false;
         enemyRigidBody.bodyType = RigidbodyType2D.Static;

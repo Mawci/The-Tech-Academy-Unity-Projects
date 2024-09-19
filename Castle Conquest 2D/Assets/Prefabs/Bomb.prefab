@@ -146,3 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c786e294a0f7c24ab0d238107175210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
+  explosionForce: {x: 10000, y: 0}
+  burningSFX: {fileID: 8300000, guid: 24f76937ee353b042895044eb6422580, type: 3}
+  boomSFX: {fileID: 8300000, guid: ac79fc8938734a4459172581feca79f4, type: 3}

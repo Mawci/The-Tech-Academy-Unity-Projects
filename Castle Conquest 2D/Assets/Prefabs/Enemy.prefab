@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 5
+  deathSFX: {fileID: 8300000, guid: 61f0db806d9f8534ba40917ae89c324c, type: 3}
 --- !u!70 &1040936214232938560
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
