@@ -7,7 +7,8 @@ public class Heart : MonoBehaviour
     [SerializeField] AudioClip heartPickupSFX;
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        AudioSource.PlayClipAtPoint(heartPickupSFX, Camera.main.transform.position, .1f);
+        AudioSource.PlayClipAtPoint(heartPickupSFX, Camera.main.transform.position, .05f);
+        FindObjectOfType<GameSession>().AddHealth();
         Destroy(gameObject);
     }
 }
