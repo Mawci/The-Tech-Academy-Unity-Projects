@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba587f603b1042845b65f3b1f5451ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartPickupSFX: {fileID: 8300000, guid: a0b96a3b9bf72494498764b207e97f1c, type: 3}
 --- !u!61 &315857494077665317
 BoxCollider2D:
   m_ObjectHideFlags: 0
