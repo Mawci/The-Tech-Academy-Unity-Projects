@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
     private bool isDucking;
+    private float rotation;
+    private bool isSpinning;
+
     private void Awake()
     {
         face = GetComponentInChildren<SpriteRenderer>();
@@ -50,6 +53,11 @@ public class PlayerController : MonoBehaviour
                 head.localPosition = new Vector3(head.localPosition.x, .5f, head.localPosition.z);
                 SetExpression(duckingSprite);
             }
+            else
+            {
+                isSpinning = true;
+                SetExpression(spinningSprite);
+            }
         }
         else if(Input.GetButtonUp("Duck"))
         {
@@ -60,7 +68,39 @@ public class PlayerController : MonoBehaviour
                 SetExpression(idleSprite);
             }
         }
+        else if(Input.GetButtonDown("SwapWeapon"))
+        {
+            if(!isJumping && !isDucking && !isSpinning)
+            {
+                bool usingWeapon01 = weapon01.gameObject.activeInHierarchy;
+                weapon01.gameObject.SetActive(usingWeapon01 == false);
+                weapon02.gameObject.SetActive(usingWeapon01);
+            }
+        }
+
+        if(isSpinning)
+        {
+            Spin();
+        }
        
+    }
+
+    private void Spin()
+    {
+        float amountToRotate = 900 * Time.deltaTime;
+        rotation += amountToRotate;
+
+        if(rotation < 360)
+        {
+            transform.Rotate(Vector3.up, amountToRotate);
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+            isSpinning = false;
+            rotation = 0;
+            SetExpression(jumpingSprite);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
