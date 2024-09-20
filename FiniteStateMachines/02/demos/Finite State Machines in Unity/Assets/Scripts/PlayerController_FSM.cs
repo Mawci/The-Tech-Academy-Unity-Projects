@@ -21,6 +21,24 @@ public class PlayerController_FSM : MonoBehaviour
 
     #endregion
 
+    public Rigidbody Rigidbody
+    {
+        get { return rbody; }
+    }
+    //This holds a reference to an instance of the PlayerBaseState, a concrete
+    // state as the context's current state
+    private PlayerBaseState currentState;
+
+    public PlayerBaseState CurrentState
+    {
+        get { return currentState; }
+    }
+
+    //theses are readonly bc we dont want their values to change once theyve been set
+    public readonly PlayerIdleState IdleState = new PlayerIdleState();
+    public readonly PlayerJumpingState JumpingState = new PlayerJumpingState();
+    public readonly PlayerDuckingState DuckingState = new PlayerDuckingState();
+
     private void Awake()
     {
         face = GetComponentInChildren<SpriteRenderer>();
@@ -28,10 +46,26 @@ public class PlayerController_FSM : MonoBehaviour
         SetExpression(idleSprite);
     }
 
+    private void Start()
+    {
+        TransitionToState(IdleState);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        currentState.Update(this);
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        currentState.OnCollisionEnter(this);
+    }
+
+    public void TransitionToState(PlayerBaseState state)
+    {
+        currentState = state;
+        currentState.EnterState(this);
     }
 
     public void SetExpression(Sprite newExpression)
