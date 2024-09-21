@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        int num = FindObjectsOfType<GameManager>().Length;
+        
+        if(num > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +33,15 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ReplayGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }

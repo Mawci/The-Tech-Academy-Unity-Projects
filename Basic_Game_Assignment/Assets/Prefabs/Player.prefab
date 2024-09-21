@@ -118,9 +118,10 @@ GameObject:
   - component: {fileID: 6737987511001549349}
   - component: {fileID: 1221127492371317783}
   - component: {fileID: 4940645902218661072}
+  - component: {fileID: 6568510926318989240}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 8436942268448514951, guid: fa903080691c7e948975c681f56997d6, type: 3}
   projectileSpawnPoint: {fileID: 4459279080769543378}
   fireEffect: {fileID: 6414158059802065716}
 --- !u!212 &1221127492371317783
@@ -237,6 +238,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &6568510926318989240
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559187907169468355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0044865604, y: 2.4458283e-11}
+  m_Size: {x: 1.3943379, y: 1.394338}
+  m_Direction: 0
 --- !u!1 &8668381224704214249
 GameObject:
   m_ObjectHideFlags: 0
