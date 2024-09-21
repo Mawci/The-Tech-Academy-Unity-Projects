@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3293292673549830196}
   - component: {fileID: 6927067509963191183}
   - component: {fileID: 4532326307832799557}
-  m_Layer: 0
+  - component: {fileID: 7802067455209760744}
+  m_Layer: 7
   m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -171,4 +172,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e091f843610b34c8ce3b89ae04d1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
+  hitSFX: {fileID: 8300000, guid: 9a80966328efb334a87397c1d0f4b499, type: 3}
+--- !u!95 &7802067455209760744
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436942268448514951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: feeed6df6f3c7cc4995b3be20ed017a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

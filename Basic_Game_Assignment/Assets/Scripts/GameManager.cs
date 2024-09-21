@@ -5,19 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private void Awake()
-    {
-        int num = FindObjectsOfType<GameManager>().Length;
+    public int waveAmount = 16;
+
+    //Implement if wanting a singleton pattern but only doing one level for a basic game
+    //private void Awake()
+    //{
+    //    int num = FindObjectsOfType<GameManager>().Length;
         
-        if(num > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    //    if(num > 1)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //}
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void RegisterKill(int kill)
+    {
+        waveAmount -= kill;
+        if(waveAmount == 0)
+        {
+            StartCoroutine(WaitToEndGame());
+        }
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -37,11 +49,31 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("Lose Game");
+    }
+
+    public void WinGame()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("Win Game");
     }
 
     public void ReplayGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    IEnumerator WaitToEndGame()
+    {
+        yield return new WaitForSeconds(3);
+        WinGame();
     }
 }

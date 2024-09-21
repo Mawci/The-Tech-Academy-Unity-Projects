@@ -174,4 +174,5 @@ MonoBehaviour:
   moveSpeed: 1
   health: 2
   damageAmount: 1
-  target: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 0508c5808bc2aa647b6b3bee97f93e58, type: 3}
+  audioSource: {fileID: 0}

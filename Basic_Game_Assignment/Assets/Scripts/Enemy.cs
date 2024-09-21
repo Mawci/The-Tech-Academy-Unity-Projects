@@ -7,18 +7,21 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed = 4;
     [SerializeField] private int health = 2;
     [SerializeField] private int damageAmount = 1;
-    [SerializeField] Rigidbody2D target;
+    [SerializeField] private AudioClip deathSFX;
+    private Rigidbody2D target;
     private Rigidbody2D rBody;
     private Vector2 movDir;
     private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        target = FindObjectOfType<Player>().GetComponent<Rigidbody2D>();
         rBody = GetComponent<Rigidbody2D>();
         movDir = target.position - rBody.position;
         float angle = Mathf.Atan2(movDir.y, movDir.x) * Mathf.Rad2Deg + 270f;// - 45f;
         rBody.rotation = angle;
         gameManager = FindObjectOfType<GameManager>();
+        //audioSource = FindObjectOfType<Player>().gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +47,8 @@ public class Enemy : MonoBehaviour
         health -= dmg;
         if(health <= 0)
         {
+            gameManager.RegisterKill(1);
+            AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
             Destroy(gameObject);
         }
     }
