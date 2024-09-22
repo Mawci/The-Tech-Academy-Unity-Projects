@@ -6,25 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int waveAmount = 16;
-
+    
     //Implement if wanting a singleton pattern but only doing one level for a basic game
-    //private void Awake()
-    //{
-    //    int num = FindObjectsOfType<GameManager>().Length;
-        
-    //    if(num > 1)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //    else
-    //    {
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //}
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

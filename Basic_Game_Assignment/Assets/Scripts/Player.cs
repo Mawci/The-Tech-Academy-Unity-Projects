@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private Animator fireEffect;
     [SerializeField] AudioClip shootSound;
+    private AudioSource gameMusic;
     Vector2 mousePosition;
 
     private void Awake()
@@ -33,7 +34,6 @@ public class Player : MonoBehaviour
             Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
             fireEffect.SetTrigger("Shot");
             AudioSource.PlayClipAtPoint(shootSound, projectileSpawnPoint.position, 4f);
-            Debug.Log("Player has shot");
         }
     }
 
